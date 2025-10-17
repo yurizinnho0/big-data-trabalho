@@ -1,165 +1,83 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Life - Pet Shop</title>
-    <style>
-        /* ======= ESTILO GERAL ======= */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+<!DOCTYPE html>  <html lang="pt-BR">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Tela de Login</title>  
+    <!-- Importando Tailwind CSS -->  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <!-- Importando a fonte Inter -->  
+    <link rel="preconnect" href="https://fonts.googleapis.com">  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">  
+    <style>  
+        body {  
+            font-family: 'Inter', sans-serif;  
+        }  
+    </style>  
+</head>  
+<body class="bg-gray-100 dark:bg-gray-900">  
+    <!-- Container Principal -->  
+    <div class="flex items-center justify-center min-h-screen">  
+        <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-xl shadow-lg dark:bg-gray-800">  <!-- Cabeçalho -->  
+        <div class="text-center">  
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Bem-vindo de volta!</h1>  
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Faça login para continuar</p>  
+        </div>  
 
-        header {
-            background-color: #ff4747;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
+        <!-- Formulário -->  
+        <form class="mt-8 space-y-6" action="#" method="POST">  
+            <input type="hidden" name="remember" value="true">  
+            <div class="space-y-4 rounded-md shadow-sm">  
+                <!-- Campo de Email -->  
+                <div>  
+                    <label for="email-address" class="sr-only">Endereço de email</label>  
+                    <input id="email-address" name="email" type="email" autocomplete="email" required  
+                        class="relative block w-full px-3 py-3 text-gray-900 placeholder-gray-500 bg-gray-50 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"  
+                        placeholder="Endereço de email">  
+                </div>  
+                <!-- Campo de Senha -->  
+                <div>  
+                    <label for="password" class="sr-only">Senha</label>  
+                    <input id="password" name="password" type="password" autocomplete="current-password" required  
+                        class="relative block w-full px-3 py-3 text-gray-900 placeholder-gray-500 bg-gray-50 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"  
+                        placeholder="Senha">  
+                </div>  
+            </div>  
 
-        nav {
-            background-color: #ff8080;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
+            <div class="flex items-center justify-between">  
+                <!-- Checkbox "Lembrar-me" -->  
+                <div class="flex items-center">  
+                    <input id="remember-me" name="remember-me" type="checkbox"  
+                        class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">  
+                    <label for="remember-me" class="block ml-2 text-sm text-gray-900 dark:text-gray-300">Lembrar-me</label>  
+                </div>  
 
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
+                <!-- Link "Esqueceu a senha?" -->  
+                <div class="text-sm">  
+                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">  
+                        Esqueceu a senha?  
+                    </a>  
+                </div>  
+            </div>  
 
-        nav a:hover {
-            color: #ff6600;
-        }
+            <!-- Botão de Login -->
+<div>  
+                <button type="submit"  
+                    class="relative flex justify-center w-full px-4 py-3 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md group hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">  
+                    Entrar  
+                </button>  
+            </div>  
+        </form>  
+          
+        <!-- Rodapé para Cadastro -->  
+        <div class="text-sm text-center text-gray-600 dark:text-gray-400">  
+            Não tem uma conta?  
+            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">  
+                Cadastre-se  
+            </a>  
+        </div>  
+    </div>  
+</div>
 
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 20px auto;
-        }
-
-        h2 {
-            color: #ff6600;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .servicos, .produtos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #ddd;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        button {
-            background-color: #ff6600;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #ff8533;
-        }
-
-        footer {
-            background-color: #ffb347;
-            text-align: center;
-            padding: 15px;
-            color: white;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-
-    <!--Serviços-->
-
-    <header>
-        <h1>🐶 Pet Life - Pet Shop</h1>
-        <p>Cuidando do seu melhor amigo com amor!</p>
-    </header>
-
-    <nav>
-        <a href="#servicos">Serviços</a>
-        <a href="#produtos">Produtos</a>
-        <a href="#contato">Contato</a>
-    </nav>
-
-    <section id="servicos" class="container">
-        <h2>Nossos Serviços</h2>
-        <div class="servicos">
-            <div class="card">
-                <img src=  https://cdn-hjdpmen.nitrocdn.com/OdygPLcrrLyxbRgOKEndAYjdoPblKJCR/assets/images/optimized/rev-3bad09d/www.hovetpopular24h.com.br/wp-content/uploads/2020/07/estetica.png alt="Banho e Tosa">
-                <h3>Banho e Tosa</h3>
-                <p>Seu pet limpo e cheiroso, com muito carinho e cuidado!</p>
-            </div>
-            <div class="card">
-                <img src="https://pilina.vet/wp-content/uploads/2021/03/PV-Services-Preventative-Care.png" alt="Veterinário">
-                <h3>Atendimento Veterinário</h3>
-                <p>Profissionais qualificados para cuidar da saúde do seu animal.</p>
-            </div>
-    </section>
-
-    <!-- produtos -->
-
-    <section id="produtos" class="container">
-        <h2>Produtos em Destaque</h2>
-        <div class="produtos">
-            <div class="card">
-                <img src="https://images.tcdn.com.br/img/img_prod/742943/racao_golden_premium_especial_formula_caes_adultos_racas_pequenas_frango_e_arroz_263_1_ec2e8428f9adaa41e1a14741d7a09baf.jpg" alt="Ração Premium">
-                <h3>Ração Premium</h3>
-                <p>Nutrição balanceada para cães e gatos de todas as idades.</p>
-                <button onclick="comprar('Ração Premium')">Comprar</button>
-            </div>
-            <div class="card">
-                <img src="https://m.media-amazon.com/images/I/81N4D3NCtJL._UF1000,1000_QL80_.jpg" alt="Brinquedos">
-                <h3>Brinquedos</h3>
-                <p>Diversão garantida para seu pet brincar o dia todo!</p>
-                <button onclick="comprar('Brinquedos')">Comprar</button>
-            </div>
-        </div>
-    </section>
-   
-    <!-- Seção de Contato -->
-     
-    <section id="contato" class="container">
-        <h2>Fale Conosco</h2>
-        <p>📍 Rua dos Pets, 123 - Belém/PA</p>
-        <p>📞 (91) 99999-9999</p>
-        <p>📧 contato@petlife.com.br</p>
-    </section>
-
-    <footer>
-        <p>🐾 Pet Life © 2025 - Todos os direitos reservados</p>
-    </footer>
-
-    <script>
-        // ======= JAVASCRIPT INTERATIVO =======
-        function comprar(produto) {
-            alert(`Você adicionou ${produto} ao carrinho! 🛒`);
-        }
-    </script>
-</body>
+</body>  
 </html>
